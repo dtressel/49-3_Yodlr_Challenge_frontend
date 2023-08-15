@@ -1,0 +1,8 @@
+.Success-user-card {
+  max-width: 20rem;
+}
+
+.Success-user-card > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

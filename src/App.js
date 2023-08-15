@@ -3,6 +3,7 @@ import Layout from '../src/components/Layout';
 import Home from '../src/components/Home';
 import Signup from '../src/components/Signup';
 import Admin from '../src/components/Admin';
+import Success from './components/Success';
 import './App.css';
 
 const router = createBrowserRouter([
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
       {
         path: "admin",
         element: <Admin />,
+        loader: null,
+      },
+      {
+        path: "success",
+        element: <Success />,
         loader: null,
       }
     ]
