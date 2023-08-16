@@ -10,6 +10,7 @@ const Footer = () => {
   return (
     <div className="Footer">
       <div className="Footer-links">
+        <NavLink to="/">Home</NavLink>
         <NavLink to="/signup">Signup</NavLink>
         <NavLink to="/admin">Admin</NavLink>
       </div>
