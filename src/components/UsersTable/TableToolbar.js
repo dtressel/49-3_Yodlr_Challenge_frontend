@@ -38,7 +38,7 @@ const TableToolbar = (props) => {
           id="tableTitle"
           component="div"
         >
-          Nutrition
+          Users
         </Typography>
       )}
 

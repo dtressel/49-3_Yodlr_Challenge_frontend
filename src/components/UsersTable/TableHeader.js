@@ -9,34 +9,34 @@ import { visuallyHidden } from '@mui/utils';
 
 const headCells = [
   {
-    id: 'name',
+    id: 'id',
     numeric: false,
     disablePadding: true,
-    label: 'Dessert (100g serving)',
+    label: 'id',
   },
   {
-    id: 'calories',
+    id: 'email',
     numeric: true,
     disablePadding: false,
-    label: 'Calories',
+    label: 'Email',
   },
   {
-    id: 'fat',
+    id: 'firstName',
     numeric: true,
     disablePadding: false,
-    label: 'Fat (g)',
+    label: 'First Name',
   },
   {
-    id: 'carbs',
+    id: 'lastName',
     numeric: true,
     disablePadding: false,
-    label: 'Carbs (g)',
+    label: 'Last Name',
   },
   {
-    id: 'protein',
+    id: 'state',
     numeric: true,
     disablePadding: false,
-    label: 'Protein (g)',
+    label: 'Status',
   },
 ];
 

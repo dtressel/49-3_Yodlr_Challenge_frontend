@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import ApiLink from '../../helpers/ApiLink';
 import UsersTable from '../UsersTable/UsersTable';
+import './Admin.css';
 
 const Admin = () => {
   const [users, setUsers] = useState();
@@ -14,14 +15,12 @@ const Admin = () => {
   }, []);
 
   return (
-    <>
-      <h2>Users</h2>
+    <div className="Admin">
+      <h2>List of Users For Admins</h2>
       {users && 
         <UsersTable users={users} />
       }
-
-    </>
-
+    </div>
   )
 }
 
