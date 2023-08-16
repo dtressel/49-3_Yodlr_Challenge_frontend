@@ -55,11 +55,43 @@ class ApiLink {
     return data;
   }
 
-  /* Update information for a particular user */
-  static async deleteUser(userId) {
-    const data = await this.request(`users/${userId}`, {}, "delete");
-    return data;
+  /* deletes an array of user ids */
+  static async deleteUsers(userIds) {
+    const promises = [];
+    const results = { deleted: [], notDeleted: [] };
+    for (const userId of userIds) {
+      promises.push(this.request(`users/${userId}`, {}, "delete"));
+    }
+    for (let i = 0; i < promises.length; i++) {
+      const res = await promises[i];
+      if (res.status.toString()[0] === '2') {
+        results.deleted.push(userIds[i]);
+      }
+      else {
+        results.notDeleted.push(userIds[i]);
+      }
+    }
+    return results;
   }
+
+    /* deletes an array of user ids */
+    static async activateUsers(arrOfUserObjs) {
+      const promises = [];
+      const results = { activated: [], notActivated: [] };
+      for (const user of arrOfUserObjs) {
+        promises.push(this.request(`users/${user.id}`, { ...user, state: "active" }, "put"));
+      }
+      for (let i = 0; i < promises.length; i++) {
+        const res = await promises[i];
+        if (res.status.toString()[0] === '2') {
+          results.activated.push(arrOfUserObjs[i].id);
+        }
+        else {
+          results.notActivated.push(arrOfUserObjs[i].id);
+        }
+      }
+      return results;
+    }
 
 }
 

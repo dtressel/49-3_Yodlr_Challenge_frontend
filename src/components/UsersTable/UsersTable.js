@@ -46,7 +46,7 @@ function stableSort(array, comparator) {
 }
 
 /* Table Component */
-const UsersTable = ({ users }) => {
+const UsersTable = ({ users, deleteSelected, activateSelected }) => {
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState('id');
   const [selected, setSelected] = useState([]);
@@ -55,8 +55,17 @@ const UsersTable = ({ users }) => {
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const rows = users;
-  console.log(rows);
 
+  const handleActivate = () => {
+    activateSelected(selected);
+    setSelected([]);  
+  }
+
+  const handleDelete = () => {
+    deleteSelected(selected);
+    setSelected([]);
+  }
+  
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
@@ -117,13 +126,13 @@ const UsersTable = ({ users }) => {
         page * rowsPerPage,
         page * rowsPerPage + rowsPerPage,
       ),
-    [order, orderBy, page, rowsPerPage],
+    [order, orderBy, page, rowsPerPage, rows],
   );
 
   return (
     <Box sx={{ width: '100%' }}>
       <Paper sx={{ width: '100%', mb: 2 }}>
-        <TableToolbar numSelected={selected.length} />
+        <TableToolbar numSelected={selected.length} handleDelete={handleDelete} handleActivate={handleActivate} />
         <TableContainer>
           <Table
             sx={{ minWidth: 750 }}

@@ -5,11 +5,11 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import DeleteIcon from '@mui/icons-material/Delete';
-import FilterListIcon from '@mui/icons-material/FilterList';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
 
 /* Top toolbar component */
 const TableToolbar = (props) => {
-  const { numSelected } = props;
+  const { numSelected, handleDelete, handleActivate } = props;
 
   return (
     <Toolbar
@@ -42,18 +42,19 @@ const TableToolbar = (props) => {
         </Typography>
       )}
 
-      {numSelected > 0 ? (
-        <Tooltip title="Delete">
-          <IconButton>
-            <DeleteIcon />
-          </IconButton>
-        </Tooltip>
-      ) : (
-        <Tooltip title="Filter list">
-          <IconButton>
-            <FilterListIcon />
-          </IconButton>
-        </Tooltip>
+      {numSelected > 0 && (
+        <>
+          <Tooltip title="Activate">
+            <IconButton onClick={handleActivate} >
+              <HowToRegIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Delete">
+            <IconButton onClick={handleDelete} >
+              <DeleteIcon />
+            </IconButton>
+          </Tooltip>
+        </>
       )}
     </Toolbar>
   );
