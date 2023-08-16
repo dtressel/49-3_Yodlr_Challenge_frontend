@@ -39,13 +39,14 @@ const Signup = () => {
     <div className="AuthForm">
       <div className="AuthForm-innerWrapper rounded-paper">
         <h2>Signup</h2>
-        <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+        <form autoComplete="off" onSubmit={handleSubmit}>
           <TextField
             label="Email"
             variant="outlined"
             id="email"
             name="email"
             className="AuthForm-field"
+            type="email"
             value={formData.email}
             onChange={handleFieldChange}
             required
