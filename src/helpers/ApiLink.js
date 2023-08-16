@@ -24,9 +24,8 @@ class ApiLink {
     try {
       return (await axios({ url, method, data, params, headers }));
     } catch (err) {
-      console.error("API Error:", err.response);
-      let message = err.response.data.error.message;
-      throw Array.isArray(message) ? message : [message];
+      console.error("API Error:", err);
+      return err;
     }
   }
 
