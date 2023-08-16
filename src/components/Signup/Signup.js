@@ -19,17 +19,19 @@ const Signup = () => {
   const handleSubmit = async evt => {
     evt.preventDefault();
     const res = await ApiLink.signupUser(formData);
-    if (res.successful) {
+    if (res.status.toString()[0] === '2') {
       resetFormData();
-      navigate("/success", { state: res });
+      navigate("/success", { state: res.data });
     }
     else {
-      // Figure out what's going on here and come up with a better solution
-      // passwords do not match error comes in as an error object
-      if (!Array.isArray(res.messages)) {
-        res.messages = [res.messages.message];
+      let messages = ["Signup Unsuccessful!"];
+      if (!res.messages && res.message) {
+        messages.push(res.message);
       }
-      setAlertMessages(res.messages);
+      else if (res.messages) {
+        messages.push(...res.messages);
+      }
+      setAlertMessages(messages);
     }
   }
 
