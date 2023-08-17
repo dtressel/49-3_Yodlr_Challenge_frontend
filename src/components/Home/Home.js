@@ -19,6 +19,7 @@ const Home = () => {
       <h4>Technologies Used (Frontend)</h4>
       <ul>
         <li>React</li>
+        <li>Create-react-app (development tool)</li>
         <li>React Router (client-side routing)</li>
         <li>Material UI</li>
         <li>Core Languages: JavaScript, HTML, CSS</li>
@@ -81,10 +82,11 @@ const Home = () => {
       </ul>
       <h4>Todos (if I had more time)</h4>
       <ul>
+        <li>Allow searching for users in users table</li>
+        <li>Add confirmation popup for deleting a user</li>
         <li>Tests: smoke tests, snapshot tests, routing tests, test helper functions</li>
         <li>More robust error handling</li>
         <li>Custom 404 page</li>
-        <li>Allow searching for users in users table</li>
       </ul>
     </div>
   )
