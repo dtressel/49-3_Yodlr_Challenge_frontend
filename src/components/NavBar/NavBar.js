@@ -113,7 +113,7 @@ function NavBar() {
               textDecoration: "none"
             }}
           >
-            Yodlr Design Challenge
+            Yodlr Challenge
           </Typography>
 
           {/* Page links in widescreen mode */}
