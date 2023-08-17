@@ -7,7 +7,6 @@ import './Success.css';
 const Success = () => {
   const { state: user } = useLocation();
   const navigate = useNavigate();
-  console.log(user);
 
   useEffect(() => {
     if (!user) {

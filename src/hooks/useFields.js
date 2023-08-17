@@ -22,7 +22,6 @@ const useFields = (initialState) => {
   }
 
   const resetFormData = () => {
-    console.log(initialState);
     setFormData(initialState);
   }
   const resetPasswordField = () => {
